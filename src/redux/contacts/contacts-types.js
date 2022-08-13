@@ -1,4 +1,4 @@
-export const FETCH = 'fetch';
-export const ADD = 'add';
-export const DELETE = 'delete';
-export const FILTER = 'filter';
+export const FETCH = 'contacts/fetch';
+export const ADD = 'contacts/add';
+export const DELETE = 'contacts/delete';
+export const FILTER = 'contacts/filter';
