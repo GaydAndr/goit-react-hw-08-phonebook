@@ -7,15 +7,20 @@ import {
   itemsSelector,
 } from 'redux/contacts/contacts-selectors';
 import { deleteItem, fetchContacts } from 'redux/contacts/contacts-operations';
+import { getIsRefreshed } from 'redux/auth/auth-selectors';
 
 export const ContactList = () => {
+  const isRefreshed = useSelector(getIsRefreshed);
   const items = useSelector(itemsSelector);
   const filter = useSelector(filterSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (isRefreshed) {
+      return;
+    }
     dispatch(fetchContacts());
-  }, [dispatch]);
+  }, [dispatch, isRefreshed]);
 
   const contacts = useMemo(
     () =>

@@ -9,10 +9,10 @@ export const NotFound = () => {
 
   useEffect(() => {
     if (isLogin) {
-      navigate('/contacts');
+      navigate('/goit-react-hw-08-phonebook/contacts');
       return;
     } else {
-      navigate('/login');
+      navigate('/goit-react-hw-08-phonebook/login');
       return;
     }
   }, [isLogin, navigate]);
