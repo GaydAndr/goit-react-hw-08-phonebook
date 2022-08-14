@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getCurrentUser } from 'redux/auth/auth-operations';
-import { getIsRefreshed, getToken } from 'redux/auth/auth-selectors';
+import { getToken } from 'redux/auth/auth-selectors';
 import { useEffect } from 'react';
-import { DotLoader } from 'react-spinners';
+// import { DotLoader } from 'react-spinners';
 import { AppBar } from './AppBar/AppBar';
 import { Routes, Route } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute/PublicRoute';
