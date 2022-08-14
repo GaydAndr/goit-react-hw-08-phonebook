@@ -1,5 +1,6 @@
 import s from '../Form.module.css';
 import PropTypes from 'prop-types';
+import { TextField } from '@mui/material';
 
 export const FormInput = ({
   name,
@@ -12,7 +13,7 @@ export const FormInput = ({
   return (
     <label htmlFor={name} className={s.label}>
       {name}
-      <input
+      <TextField
         type={type}
         name={name}
         pattern={pattern}

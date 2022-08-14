@@ -1,6 +1,7 @@
 import s from './ContactList.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMemo, useEffect } from 'react';
+import { List } from '@mui/material';
 import {
   filterSelector,
   itemsSelector,
@@ -25,7 +26,7 @@ export const ContactList = () => {
   );
 
   return (
-    <ul className={s.contact__list}>
+    <List className={s.contact__list}>
       {contacts?.map(({ id, name, number }) => {
         return (
           <li key={id} className={s.contact__item}>
@@ -43,6 +44,6 @@ export const ContactList = () => {
           </li>
         );
       })}
-    </ul>
+    </List>
   );
 };

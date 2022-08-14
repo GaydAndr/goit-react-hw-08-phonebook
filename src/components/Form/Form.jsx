@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import s from './Form.module.css';
 import { FormInput } from './FormInput/FormInput';
 import { itemsSelector } from 'redux/contacts/contacts-selectors';
-import { nanoid } from 'nanoid';
 import { addContact } from 'redux/contacts/contacts-operations';
+import { Button } from '@mui/material';
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -14,6 +15,7 @@ export const Form = () => {
 
   const handleChange = event => {
     const { name, value } = event.currentTarget;
+
     if (name === 'name') {
       setName(value);
     } else if (name === 'number') {
@@ -23,7 +25,6 @@ export const Form = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const id = nanoid();
     const inContacts = contacts.some(
       item => item.name.toLowerCase() === name.toLowerCase()
     );
@@ -33,7 +34,7 @@ export const Form = () => {
       return;
     }
 
-    dispatch(addContact({ name, number, id }));
+    dispatch(addContact({ name, number }));
     setName('');
     setNumber('');
   };
@@ -56,9 +57,14 @@ export const Form = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         handleChange={handleChange}
       />
-      <button type="submit" className={s.btn}>
+      <Button
+        type="submit"
+        className={s.btn}
+        variant="contained"
+        startIcon={<AddIcCallIcon />}
+      >
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };
