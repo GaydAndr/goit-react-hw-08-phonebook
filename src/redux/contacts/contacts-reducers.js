@@ -5,8 +5,9 @@ import { filterContact } from './contscts-actions';
 
 const itemReducer = createReducer([], {
   [fetchContacts.fulfilled]: (_, { payload }) => payload,
-  [addContact.fulfilled]: (_, { payload }) => payload,
-  [deleteItem.fulfilled]: (_, { payload }) => payload,
+  [addContact.fulfilled]: (state, { payload }) => [...state, payload],
+  [deleteItem.fulfilled]: (state, { payload }) =>
+    state.filter(el => el.id !== payload),
 });
 
 const filterReducer = createReducer('', {
